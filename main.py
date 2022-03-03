@@ -13,7 +13,7 @@ password1 = ""
 def getps():
     usrname1 = usernameentry.get()
     url2 = websiteentry.get().title()
-    data = pd.read_csv("./python/password_container/data.csv")
+    data = pd.read_csv("./data.csv")
     data1 = data.website.to_list()
     if url2 in data1:
         data2 = data[data.website == url2]
@@ -60,7 +60,7 @@ def store1():
     password1 = passwordentry.get()
     username1 = usernameentry.get()
     url1 = websiteentry.get()
-    with open("./python/password_container/data.csv", mode="a") as file:
+    with open("./data.csv", mode="a") as file:
         file.write(f"\n{url1},{username1},{password1}")
 
 # UI Setup
@@ -70,7 +70,7 @@ windows.title("Password - Manager")
 # windows.minsize(500, 400)
 windows.config(padx=10, pady=20, bg="black")
 
-img1 = Image.open("./python/password_container/lock.png")
+img1 = Image.open("./lock.png")
 img2 = img1.resize((150, 150), Image.BOX)
 img = ImageTk.PhotoImage(img2)
 
